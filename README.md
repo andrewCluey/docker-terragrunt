@@ -13,7 +13,7 @@ For example, if the container has been tagged with the Terragrunt version number
 docker run --rm terragrunt:0.21.6 
 ```
 
-To establish the version fo Terraform installed, run:
+To establish the version of Terraform installed, run:
 
 ```
 docker run --rm terragrunt:0.21.6 terraform --version
