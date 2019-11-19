@@ -7,14 +7,14 @@ The default command will simply return the version of Terragrunt that is install
 
 This is a good way to confirm the correct version has been installed and it's workign as expected.
 
-For example, if the container has been tagged with the Terragrunt version number (0.21.6), then run:
+For example run:
 
 ```
-docker run --rm terragrunt:0.21.6 
+docker run --rm terragrunt
 ```
 
 To establish the version of Terraform installed, run:
 
 ```
-docker run --rm terragrunt:0.21.6 terraform --version
+docker run --rm terragrunt terraform --version
 ```
