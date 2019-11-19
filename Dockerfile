@@ -1,15 +1,12 @@
-FROM debian:stable-slim as build
-
-RUN set -eux \
-        && DEBIAN_FRONTEND=noninteractive apt-get update \
-        && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
-		        ca-certificates \
-                curl \
-                git \
-                unzip
+FROM alpine:3.10 as build
+RUN apk add --no-cache ca-certificates \
+            curl \
+            git \
+            unzip
 
 ENV TF_VERSION=0.12.14
 ENV TG_VERSION=v0.21.5
+
 # Get Terraform
 RUN curl -sS -L -O https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
 	&& unzip terraform_${TF_VERSION}_linux_amd64.zip \
@@ -31,7 +28,7 @@ LABEL \
 COPY --from=build /usr/bin/terraform /usr/bin/terraform
 COPY --from=build /usr/bin/terragrunt /usr/bin/terragrunt
 
-WORKDIR /data
+WORKDIR /config
 
 CMD ["terragrunt", "--version"]
 
