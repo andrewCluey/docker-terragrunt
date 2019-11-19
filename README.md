@@ -1,6 +1,7 @@
 # docker-terragrunt
-Dockerfile for terragrunt container (includes Terraform).
+Small terragrunt container based on Alpine image (includes Terraform).
 
+Terraform and terragrunt versions specified in Dockerfile ENV variable.
 
 ## Default Command
 The default command will simply return the version of Terragrunt that is installed in the container. 
