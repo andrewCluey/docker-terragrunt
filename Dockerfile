@@ -19,12 +19,10 @@ RUN curl -sS -L \
 		-o /usr/bin/terragrunt \
 	&& chmod +x /usr/bin/terragrunt
 
-# Build a tiny image
+# Build a small image
 FROM alpine:3.10
-LABEL \
-	maintainer="Andrew Clure" \
-	repo="https://github.com/"
 
+RUN apk add --no-cache git
 COPY --from=build /usr/bin/terraform /usr/bin/terraform
 COPY --from=build /usr/bin/terragrunt /usr/bin/terragrunt
 
