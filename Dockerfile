@@ -4,8 +4,8 @@ RUN apk add --no-cache ca-certificates \
             git \
             unzip
 
-ENV TF_VERSION=0.12.14
-ENV TG_VERSION=v0.21.5
+ENV TF_VERSION=0.12.16
+ENV TG_VERSION=v0.21.6
 
 # Get Terraform
 RUN curl -sS -L -O https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip \
